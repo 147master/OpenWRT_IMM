@@ -167,6 +167,8 @@ jobs:
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
+          ../scripts/feeds install -a
+
       - name: Custom Settings
         run: |
           . $GITHUB_WORKSPACE/Scripts/function.sh
@@ -245,11 +247,8 @@ jobs:
           tag_name: ${{env.CI_NAME}}-${{env.WRT_CONFIG}}_${{env.WRT_DATE}}
           files: ./wrt/upload/*.*
           body: |
-            这是个平台固件包，内含多个设备！
-            请注意选择你需要的设备固件！
-            不要问，刷就完事了！
 
-            全系带开源硬件加速，别问了！
+            京东云太乙开源硬件加速固件
 
             源码：${{env.WRT_REPO}}
             分支：${{env.WRT_BRANCH}}
@@ -266,3 +265,4 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
