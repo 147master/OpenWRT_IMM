@@ -2,14 +2,13 @@
 #CONFIG_PACKAGE_luci-app-homeproxy=y
 CONFIG_PACKAGE_luci-app-daed=y
 CONFIG_PACKAGE_luci-app-dae=y
-CONFIG_PACKAGE_luci-app-nikki=y
+#CONFIG_PACKAGE_luci-app-nikki=y
 #CONFIG_PACKAGE_luci-app-momo=y
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-gecoosac=y
 #CONFIG_PACKAGE_luci-app-netspeedtest=y
 #CONFIG_PACKAGE_luci-app-partexp=y
-#CONFIG_PACKAGE_luci-app-samba4=y
+CONFIG_PACKAGE_luci-app-samba4=y
 #CONFIG_PACKAGE_luci-app-tailscale=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-wolplus=y
@@ -23,7 +22,7 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-app-ddns-go=y
 CONFIG_PACKAGE_luci-app-gecoosac=y
-CONFIG_PACKAGE_luci-app-pushbot=y
+#CONFIG_PACKAGE_luci-app-pushbot=y
 #CONFIG_PACKAGE_luci-app-mwan3=y
 #删除插件
 CONFIG_PACKAGE_luci-app-wol=n
@@ -33,7 +32,19 @@ CONFIG_DEVEL=y
 CONFIG_TARGET_MULTI_PROFILE=y
 CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 CONFIG_TARGET_ROOTFS_INITRAMFS=n
-#补
+#补第三方
+#CONFIG_PACKAGE_luci-app-openlist=m
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-passwall2=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+ONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
+#CONFIG_PACKAGE_luci-app-mosdns=y
+
+CONFIG_PACKAGE_curl=y
+
+#补内核
 CONFIG_PACKAGE_kmod-usb2=y
 CONFIG_PACKAGE_kmod-mt76=y
 CONFIG_PACKAGE_kmod-mt76x2u=y
@@ -46,7 +57,11 @@ CONFIG_PACKAGE_docker=y
 CONFIG_PACKAGE_dockerd=y
 CONFIG_PACKAGE_containerd=y
 CONFIG_PACKAGE_runc=y
+CONFIG_PACKAGE_luci-lib-jsonc=y
+CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=y
 
+CONFIG_PACKAGE_luci-lib-ip=y
 CONFIG_PACKAGE_tini=y      
 CONFIG_PACKAGE_kmod-bridge=y
 CONFIG_PACKAGE_kmod-macvlan=y
@@ -173,5 +188,6 @@ CONFIG_LUCI_LANG_zh_Hans=y
 CONFIG_PACKAGE_default-settings=y
 CONFIG_PACKAGE_default-settings-chn=y
 CONFIG_PACKAGE_bash=y
+
 
 
