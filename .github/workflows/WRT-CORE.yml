@@ -66,7 +66,7 @@ env:
 jobs:
   core:
     name: ${{inputs.WRT_SOURCE}}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Install BC
         env:
@@ -132,6 +132,16 @@ jobs:
       - name: Check Scripts
         run: |
           find ./ -maxdepth 3 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
+
+      - name: Update Go To Latest
+        run: |
+                LATEST_GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
+                GO_ARCH=$([ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64")
+                echo "正在为 $(uname -m) 下载 Go: $LATEST_GO_VERSION ($GO_ARCH)"
+                sudo rm -rf /usr/local/go
+                curl -L "https://dl.google.com/go/${LATEST_GO_VERSION}.linux-${GO_ARCH}.tar.gz" | sudo tar -C /usr/local -xzf -
+                echo "/usr/local/go/bin" >> $GITHUB_PATH
+                /usr/local/go/bin/go version
 
       - name: Cache Dependencies
         uses: actions/cache@v4
